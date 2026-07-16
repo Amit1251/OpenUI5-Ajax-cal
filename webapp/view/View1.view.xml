@@ -2,12 +2,14 @@
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m">
         <Page id="page" title="{i18n>title}">
-         <Button id="btnGetData" text="Get Data" press="onPress"></Button>
+         <Button id="btnGetData" text="GO" press="onPress"></Button>
 
          <Table id="postsTable" inset="false" items="{posts>/posts}">
                 <headerToolbar>
                      <Toolbar id="_IDGenToolbar1">
                          <Title id="_IDGenTitle" text="Posts" />
+                         <ToolbarSpacer id="toolbarSpacer" />
+                         <SearchField id="idSearchField" placeholder="Filter by ID" search="onFilterByID"  width="200px" />
                      </Toolbar>
                 </headerToolbar>
                 <columns>

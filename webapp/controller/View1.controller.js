@@ -1,7 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], (Controller, JSONModel) => {
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+], (Controller, JSONModel, Filter, FilterOperator) => {
     "use strict";
 
     return Controller.extend("ajax.controller.View1", {
@@ -24,6 +26,19 @@ sap.ui.define([
                 }
             });
 
+        },
+
+        // Filter table by ID
+        onFilterByID(oEvent) {
+            var sQuery = oEvent.getParameter("query");
+            var oTable = this.getView().byId("postsTable");
+            var oBinding = oTable.getBinding("items");
+            
+            var aFilters = [];
+            if (sQuery) {
+                aFilters.push(new Filter("id", FilterOperator.EQ, sQuery));
+            }
+            oBinding.filter(aFilters);
         }
     });
 });
