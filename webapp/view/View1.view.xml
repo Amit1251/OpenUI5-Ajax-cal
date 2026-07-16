@@ -2,7 +2,8 @@
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m">
         <Page id="page" title="{i18n>title}">
-         <Button id="btnGetData" text="GO" press="onPress"></Button>
+         <Button id="btnGetData" text="Get Data" press="onPress"></Button>
+         <Button id="btnPostData" text="Post Data" press="onPressPost"></Button>
 
          <Table id="postsTable" inset="false" items="{posts>/posts}">
                 <headerToolbar>

@@ -39,6 +39,31 @@ sap.ui.define([
                 aFilters.push(new Filter("id", FilterOperator.EQ, sQuery));
             }
             oBinding.filter(aFilters);
+        },
+
+        // Posting of Payload to the API , completed and successful response is logged to the console and a message toast is shown to the user
+        onPressPost() {
+           var Payload = {
+                userId: 999,
+                title: "My New Post",
+                body: "This is the content of my new post."
+            };
+
+            jQuery.ajax({
+                url: "https://jsonplaceholder.typicode.com/posts",
+                method: "POST",
+                data: JSON.stringify(Payload),
+                contentType: "application/json; charset=UTF-8",
+                success: (data) => {
+                    console.log("Post created successfully:", data);
+                    sap.m.MessageToast.show("Post created successfully!");
+                    //this.onPress(); // Refresh the posts list
+                },
+                error: (error) => {
+                    console.error("Error creating post:", error);
+                    sap.m.MessageToast.show("Error creating post. Please try again.");
+                }
+            });
         }
     });
 });
