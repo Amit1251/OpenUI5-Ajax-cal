@@ -1,0 +1,40 @@
+<mvc:View controllerName="ajax.controller.View1"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m">
+        <Page id="page" title="{i18n>title}">
+         <Button id="btnGetData" text="Get Data" press="onPress"></Button>
+
+         <Table id="postsTable" inset="false" items="{posts>/posts}">
+                <headerToolbar>
+                     <Toolbar id="_IDGenToolbar1">
+                         <Title id="_IDGenTitle" text="Posts" />
+                     </Toolbar>
+                </headerToolbar>
+                <columns>
+                     <Column id="_IDGenColumn">
+                         <Text id="_IDGenText" text="User ID"/>
+                     </Column>
+                     <Column id="_IDGenColumn1">
+                         <Text id="_IDGenText1" text="ID"/>
+                     </Column>
+                     <Column id="_IDGenColumn2">
+                         <Text id="_IDGenText2" text="Title"/>
+                     </Column>
+                     <Column id="_IDGenColumn3">
+                         <Text id="_IDGenText3" text="Body"/>
+                     </Column>
+                </columns>
+                <items>
+                     <ColumnListItem id="_IDGenColumnListItem">
+                         <cells>
+                             <Text id="_IDGenText4" text="{posts>userId}" />
+                             <Text id="_IDGenText5" text="{posts>id}" />
+                             <Text id="_IDGenText6" text="{posts>title}" />
+                             <Text id="_IDGenText7" text="{posts>body}" />
+                         </cells>
+                     </ColumnListItem>
+                </items>
+         </Table>
+
+        </Page>
+</mvc:View>
